@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.firstproject.mapper.OrderMapper">
+
+    <select id="selectPosition" resultType="integer">
+        select position from (
+                          SELECT a.orderId,(@rowno :=@rowno+1) as position
+                          FROM `order` a,(select (@rowno:=0)) b where finishTime is null) t
+        where orderId = #{orderId};
+    </select>
+
+</mapper>

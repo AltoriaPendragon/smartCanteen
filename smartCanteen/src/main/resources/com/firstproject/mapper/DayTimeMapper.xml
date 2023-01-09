@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.firstproject.mapper.DayTimeMapper">
+
+    <update id="update">
+        update daytime
+        <trim prefix="set" suffixOverrides=",">
+            <if test="one != null">one = one + 1,</if>
+            <if test="two != null">two = two + 1,</if>
+            <if test="three != null">three = three + 1,</if>
+            <if test="four != null">four = four + 1,</if>
+            <if test="five != null">five = five + 1,</if>
+            <if test="six != null">six = six + 1,</if>
+            <if test="seven != null">seven = seven + 1,</if>
+            <if test="eight != null">eight = eight + 1,</if>
+            <if test="nine != null">nine = nine + 1,</if>
+            <if test="ten != null">ten = ten + 1,</if>
+            <if test="eleven != null">eleven = eleven + 1,</if>
+            <if test="twelve != null">twelve = twelve + 1,</if>
+            <if test="thirteen != null">thirteen = thirteen + 1,</if>
+            <if test="fourteen != null">fourteen = fourteen + 1,</if>
+            <if test="fifteen != null">fifteen = fifteen + 1,</if>
+            <if test="sixteen != null">sixteen = sixteen + 1,</if>
+            <if test="seventeen != null">seventeen = seventeen + 1,</if>
+            <if test="eighteen != null">eighteen = eighteen + 1,</if>
+            <if test="nineteen != null">nineteen = nineteen + 1,</if>
+            <if test="twenty != null">twenty = twenty + 1,</if>
+            <if test="twenty_one != null">twenty_one = twenty_one + 1,</if>
+            <if test="twenty_two != null">twenty_two = twenty_two + 1,</if>
+            <if test="twenty_three != null">twenty_three = twenty_three + 1,</if>
+            <if test="zero != null">zero = zero + 1,</if>
+        </trim>
+    </update>
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.firstproject.mapper.StaffMapper">
+
+    <select id="selectByLimit" resultType="staff">
+        select *
+        from staff
+        <trim prefix="where" prefixOverrides="and">
+            <if test="staffName != null and staffName != ''">
+                and staffName like concat('%', #{staffName}, '%')
+            </if>
+            <if test="sex != null and sex != ''">
+                and sex like concat('%', #{sex}, '%')
+            </if>
+            <if test="staffAccount != null and staffAccount != ''">
+                and staffAccount like concat('%', #{staffAccount}, '%')
+            </if>
+        </trim>
+        limit #{startIndex}, #{pageSize}
+    </select>
+
+    <update id="updateById">
+        update staff
+        <trim prefix="set" suffixOverrides=",">
+            <if test="staffName != null and staffName != ''"> staffName = #{staffName},</if>
+            <if test="sex != null and sex != ''"> sex = #{sex},</if>
+            <if test="age != null"> age = #{age},</if>
+            <if test="staffAccount != null and staffAccount != ''"> staffAccount = #{staffAccount},</if>
+            <if test="password != null and password != ''"> password = #{password},</if>
+            <if test="workload != null"> workload = #{workload},</if>
+            <if test="income != null"> income = #{income},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+</mapper>
